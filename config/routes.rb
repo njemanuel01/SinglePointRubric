@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :objectives
   resources :rubrics
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.
