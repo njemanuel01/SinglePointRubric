@@ -52,7 +52,7 @@ gem 'will_paginate', '~> 3.0.7'
 # gem 'devise', '~> 3.5.1'
 
 # rails generate sorcery:install reset_password
-gem sorcery
+gem "sorcery"
 
 #---------------------------------------------------------------------------------------------
 
