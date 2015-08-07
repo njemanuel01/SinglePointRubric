@@ -20,6 +20,11 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
   end
+  
+  def add_course
+    current_user.courses << @course
+    redirect_to add_course_path, notice: "Course was successfully added."
+  end
 
   # GET /courses/1/edit
   def edit
