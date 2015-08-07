@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <ht>Courses</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,7 +12,10 @@
   <tbody>
     <% @rubrics.each do |rubric| %>
       <tr>
-        <td><%= rubric.name %></td>
+        <td><%= rubric.name %></td> 
+        <td><% rubrics.courses.each do |course|%>
+          | <%= course.name %>
+          <% end %></td>
         <td><%= link_to 'Show', rubric %></td>
         <% if !current_user.is_teacher %>
           <td><%= link_to 'Remove Rubric', remove_rubric_path(rubric) %>
