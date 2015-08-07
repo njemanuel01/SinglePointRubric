@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
-  get 'user_sessions/new'
+  root :to => 'users#index'
+  resources :user_sessions
+  resources :users
 
-  get 'user_sessions/create'
-
-  get 'user_sessions/destroy'
-
-  get 'password_resets/create'
-
-  get 'password_resets/edit'
-
-  get 'password_resets/update'
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
   
   resources :password_resets
   resources :users
