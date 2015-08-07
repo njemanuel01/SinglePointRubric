@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   root :to => 'users#index'
   resources :user_sessions
-  resources :users
+  resources :users, except: [:index]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
   
   resources :password_resets
-  resources :users
-  resources :users
   resources :objectives
   resources :rubrics
   resources :courses

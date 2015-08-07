@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -11,4 +9,8 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+<%= link_to "My Courses", courses_path%><br>
+<%= link_to "My Rubrics", rubrics_path%>
+
