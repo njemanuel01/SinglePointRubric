@@ -8,8 +8,7 @@
   <%= @user.is_teacher %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %><br>
 
 <%= link_to "My Courses", courses_path%><br>
 <%= link_to "My Rubrics", rubrics_path%>

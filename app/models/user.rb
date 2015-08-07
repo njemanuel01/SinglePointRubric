@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
-  validates :is_teacher, presence: true
+  validates :is_teacher, :inclusion => { :in => [true, false] }
 
   validates :email, uniqueness: true
     
