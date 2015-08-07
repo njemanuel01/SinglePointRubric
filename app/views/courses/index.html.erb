@@ -13,7 +13,7 @@
       <tr>
         <td><%= course.name %></td>
         <% if !current_user.courses.include? course%>
-          <td><%= link_to 'Add to My Courses', "/add_course/#{course.id}" %></td>
+          <td><%= link_to 'Add to My Courses', add_course_path(course) %></td>
         <% end %>
       </tr>
     <% end %>

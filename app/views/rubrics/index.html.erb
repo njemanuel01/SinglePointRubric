@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Rubrics</h1>
+<h1>All Rubrics</h1>
 
 <table>
   <thead>
@@ -14,14 +12,12 @@
     <% @rubrics.each do |rubric| %>
       <tr>
         <td><%= rubric.name %></td>
-        <td><%= link_to 'Show', rubric %></td>
-        <td><%= link_to 'Edit', edit_rubric_path(rubric) %></td>
-        <td><%= link_to 'Destroy', rubric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if !current_user.rubrics.include? rubric%>
+          <td><%= link_to 'Add to My Rubrics', add_rubric_path(rubric) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Rubric', new_rubric_path %>

@@ -14,7 +14,7 @@
         <td><%= course.name %></td>
         <td><%= link_to 'Show', course %></td>
         <% if !current_user.is_teacher %>
-          <td><%= link_to 'Remove Course', "/remove_course/#{course.id}" %>
+          <td><%= link_to 'Remove Course', remove_course_path(course) %>
         <% end %>
         <% if current_user.is_teacher %>
           <td><%= link_to 'Edit', edit_course_path(course) %></td>
