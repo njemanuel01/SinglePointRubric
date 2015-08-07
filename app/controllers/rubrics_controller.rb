@@ -6,6 +6,10 @@ class RubricsController < ApplicationController
   def index
     @rubrics = Rubric.all
   end
+  
+  def my_index
+    @rubrics = current_user.rubrics
+  end
 
   # GET /rubrics/1
   # GET /rubrics/1.json

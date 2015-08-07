@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :objectives
   resources :rubrics
   resources :courses
+  get 'my_courses' => 'courses#my_index', :as => :my_courses
+  get 'my_rubrics' => 'rubrics#my_index', :as => :my_rubrics
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

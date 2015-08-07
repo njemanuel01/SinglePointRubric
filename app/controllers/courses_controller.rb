@@ -6,6 +6,10 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
   end
+  
+  def my_index
+    @courses = current_user.courses
+  end
 
   # GET /courses/1
   # GET /courses/1.json
@@ -28,7 +32,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        current_user.courses << @course
+        format.html { redirect_to courses_path, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
