@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <ht>Courses</th>
+      <th>Courses</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +13,7 @@
     <% @rubrics.each do |rubric| %>
       <tr>
         <td><%= rubric.name %></td> 
-        <td><% rubrics.courses.each do |course|%>
+        <td><% rubric.courses.each do |course|%>
           | <%= course.name %>
           <% end %></td>
         <td><%= link_to 'Show', rubric %></td>
@@ -33,7 +33,4 @@
 
 <% if current_user.is_teacher %>
   <%= link_to 'New Rubric', new_rubric_path %>
-<% end %>
-<% if !current_user.is_teacher %>
-  <%= link_to 'Add a rubric', rubrics_path %>
 <% end %>

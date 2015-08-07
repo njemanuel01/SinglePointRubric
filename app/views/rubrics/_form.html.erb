@@ -15,6 +15,28 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+    <p>Courses(Up to three)</p>
+    <select name= "rubric[course_id1]">
+      <option label=""></option>
+    <% @courses.each do |course|%>
+      <option value="<%=course.id%>"><%=course.name%></option>
+    <% end %>
+    </select>
+    <select name= "rubric[course_id2]">
+      <option label=""></option>
+    <% @courses.each do |course|%>
+      <option value="<%=course.id%>"><%=course.name%></option>
+    <% end %>
+    </select>
+    <select name= "rubric[course_id3]">
+      <option label=""></option>
+    <% @courses.each do |course|%>
+      <option value="<%=course.id%>"><%=course.name%></option>
+    <% end %>
+    </select>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
