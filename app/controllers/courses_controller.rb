@@ -22,8 +22,15 @@ class CoursesController < ApplicationController
   end
   
   def add_course
+    @course = Course.find(params["id"])
     current_user.courses << @course
-    redirect_to add_course_path, notice: "Course was successfully added."
+    redirect_to my_courses_path, notice: "Course was successfully added."
+  end
+  
+  def remove_course
+    @course = Course.find(params["id"])
+    current_user.courses.delete(@course)
+    redirect_to my_courses_path, notice: "Course was successfully removed"
   end
 
   # GET /courses/1/edit
@@ -38,7 +45,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.save
         current_user.courses << @course
-        format.html { redirect_to courses_path, notice: 'Course was successfully created.' }
+        format.html { redirect_to my_courses_path, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
