@@ -20,6 +20,18 @@ class RubricsController < ApplicationController
   def new
     @rubric = Rubric.new
   end
+  
+  def add_rubric
+    @rubric = Rubric.find(params["id"])
+    current_user.rubrics << @rubric
+    redirect_to my_rubrics_path, notice: "Rubric was successfully added."
+  end
+  
+  def remove_course
+    @rubric = Rubric.find(params["id"])
+    current_user.rubrics.delete(@rubric)
+    redirect_to my_rubrics_path, notice: "Rubric was successfully removed"
+  end
 
   # GET /rubrics/1/edit
   def edit
@@ -32,7 +44,8 @@ class RubricsController < ApplicationController
 
     respond_to do |format|
       if @rubric.save
-        format.html { redirect_to @rubric, notice: 'Rubric was successfully created.' }
+        current_user.rubrics << @rubric
+        format.html { redirect_to my_rubrics_path, notice: 'Rubric was successfully created.' }
         format.json { render :show, status: :created, location: @rubric }
       else
         format.html { render :new }
@@ -46,7 +59,7 @@ class RubricsController < ApplicationController
   def update
     respond_to do |format|
       if @rubric.update(rubric_params)
-        format.html { redirect_to @rubric, notice: 'Rubric was successfully updated.' }
+        format.html { redirect_to my_rubrics_path, notice: 'Rubric was successfully updated.' }
         format.json { render :show, status: :ok, location: @rubric }
       else
         format.html { render :edit }

@@ -12,7 +12,9 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.name %></td>
-        <td><%= link_to 'Add to My Courses', "/add_course/#{course.id}" %></td>
+        <% if !current_user.courses.include? course%>
+          <td><%= link_to 'Add to My Courses', "/add_course/#{course.id}" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

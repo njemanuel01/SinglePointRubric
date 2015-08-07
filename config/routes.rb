@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'add_course/:id' => 'courses#add_course', :as => :add_course
   get 'remove_course/:id' => 'courses#remove_course', :as => :remove_course
   get 'my_rubrics' => 'rubrics#my_index', :as => :my_rubrics
+  get 'add_rubric/:id' => 'rubrics#add_rubric', :as => :add_rubric
+  get 'remove_rubric/:id' => 'rubrics#remove_rubric', :as => :remove_rubric
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
