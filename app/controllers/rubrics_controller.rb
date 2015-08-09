@@ -14,6 +14,7 @@ class RubricsController < ApplicationController
   # GET /rubrics/1
   # GET /rubrics/1.json
   def show
+    @objectives = @rubric.objectives
   end
 
   # GET /rubrics/new
