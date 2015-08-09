@@ -1,4 +1,4 @@
 class Objective < ActiveRecord::Base
   belongs_to :rubric
-  has_and_belongs_to_many :users
+  has_many :users, :through => :student_objectives
 end

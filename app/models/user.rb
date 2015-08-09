@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
     
   has_and_belongs_to_many :courses
-  has_and_belongs_to_many :rubrics
-  has_and_belongs_to_many :objectives
+  has_many :rubrics, :through => :student_rubrics
+  has_many :objectives, :through => :student_objectives
 end
