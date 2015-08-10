@@ -27,8 +27,11 @@
 </table>
 
 <% if !current_user.is_teacher %>
-  <% if StudentRubric.where("user_id = ? AND :rubric_id = ?", current_user.id, @rubric.id).notes %>
-    <%= StudentRubric.where("user_id = ? AND :rubric_id = ?", current_user.id, @rubric.id).notes %>
+  <% if @rubric_notes.notes %>
+    <%= @rubric_notes.notes %>
+    <%= link_to 'Edit Notes', edit_rubric_notes_path(@rubric_notes.id) %>
+  <% else%>
+    <%= link_to 'Add notes', add_notes_path(@rubric.id) %>
   <% end %>
 <% end %>
 

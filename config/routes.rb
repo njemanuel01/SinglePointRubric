@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'add_rubric/:id' => 'rubrics#add_rubric', :as => :add_rubric
   get 'remove_rubric/:id' => 'rubrics#remove_rubric', :as => :remove_rubric
   
+  get 'add_note/:id' => 'student_rubrics#add_note', :as => :add_notes
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

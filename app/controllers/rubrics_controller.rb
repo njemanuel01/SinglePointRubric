@@ -15,6 +15,7 @@ class RubricsController < ApplicationController
   # GET /rubrics/1.json
   def show
     @objectives = @rubric.objectives
+    @rubric_notes = StudentRubric.where("user_id = ? AND rubric_id = ?", current_user.id, @rubric.id).first
   end
 
   # GET /rubrics/new
