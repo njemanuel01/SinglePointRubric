@@ -15,9 +15,9 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+  
   <div class="field">
-    <%= f.label :rubric_id %><br>
-    <%= f.number_field :rubric_id %>
+    <%= f.hidden_field :rubric_id, value: @objective.rubric_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

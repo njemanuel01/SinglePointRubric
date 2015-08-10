@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
   
+  get '/objectives/new/:id' => "objectives#new", :as => :new_objective
+  
   resources :password_resets
   resources :objectives
   resources :rubrics

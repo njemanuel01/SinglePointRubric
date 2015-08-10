@@ -26,6 +26,9 @@ class RubricsController < ApplicationController
   def add_rubric
     @rubric = Rubric.find(params["id"])
     current_user.rubrics << @rubric
+    @rubric.objectives.each do |objective|
+      current_user.objectives << objective
+    end
     redirect_to my_rubrics_path, notice: "Rubric was successfully added."
   end
   

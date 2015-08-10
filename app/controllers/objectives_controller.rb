@@ -15,6 +15,7 @@ class ObjectivesController < ApplicationController
   # GET /objectives/new
   def new
     @objective = Objective.new
+    @objective.rubric_id = params["id"]
   end
 
   # GET /objectives/1/edit
@@ -28,7 +29,8 @@ class ObjectivesController < ApplicationController
 
     respond_to do |format|
       if @objective.save
-        format.html { redirect_to @objective, notice: 'Objective was successfully created.' }
+        @rubric = Rubric.find(@objective.rubric_id)
+        format.html { redirect_to @rubric, notice: 'Objective was successfully created.' }
         format.json { render :show, status: :created, location: @objective }
       else
         format.html { render :new }
